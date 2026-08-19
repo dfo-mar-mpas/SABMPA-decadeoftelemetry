@@ -1,0 +1,7 @@
+Species,n,Avg_Length_M,Max_Length_M,sd_Length_M,,Tag_Models,Life_1301_days,Life_1304_days,Life_1460_days,Life_1583_days,Life_1584_days,Life_1586_days,Life_2326_days,Life_2333_days,Life_500_days,Life_633_days,Life_900_days,Life_530_days,Life_917_days
+Atlantic cod,233,0.53,0.79,0.09,,"V13, V16, V13-1H, V16, V13, V13T, V16T",10,28,14,6,29,12,2,29,58,36,59,0,0
+Atlantic halibut,54,1.29,1.94,0.34,,"V13TP, V13TP, V16, V13-1x, V16, V13T, V16T",7,2,0,0,0,0,8,36,6,1,0,29,2
+Atlantic striped wolffish,14,0.52,0.67,0.07,,V13-1x,0,0,0,14,0,0,0,0,0,0,0,0,0
+Atlantic tomcod,3,0.37,0.38,0.01,,V13-1x,0,0,0,2,0,0,0,0,0,0,1,0,0
+Shorthorn sculpin,2,0.35,0.38,0.04,,V13-1x,0,0,0,1,0,0,0,0,0,0,1,0,0
+Thorny skate,1,0.46,0.46,NA,,V13-1x,0,0,0,1,0,0,0,0,0,0,0,0,0

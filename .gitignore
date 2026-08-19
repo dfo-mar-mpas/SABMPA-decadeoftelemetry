@@ -1,1 +1,4 @@
 data/raw
+.RData
+.Rhistory
+.Rproj.user/

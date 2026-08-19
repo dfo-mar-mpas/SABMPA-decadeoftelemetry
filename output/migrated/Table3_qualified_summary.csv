@@ -1,0 +1,17 @@
+Species (Conservation Status?),Detections (individuals),Benthoscape habitat classification,,,,,MPA Zone,,,Mean depth (m),Max  years
+,,A - Mud,B - Gravelly sand / mud <50% cobblles / gravel,C - Till >50% cobbles / gravel,D - Till with coraline algae,E - Gravel with crinoids,Zone 1,Zone 3,Zone 4,,
+American eel (TH),111(5),70,15,25,0,1,111,0,0,129.2,1
+Atlantic cod (EN),14432(48),4661,0,9759,12,0,14432,0,0,107.4,3
+Atlantic halibut (NR),506(5),464,24,0,14,4,89,0,417,150.2,2
+Atlantic mackerel,9(1),6,3,0,0,0,8,0,1,120.9,1
+Atlantic salmon (EN),2314(97),1273,88,824,122,7,2119,35,160,114,6
+Atlantic sturgeon (TH),9(1),9,0,0,0,0,9,0,0,98,1
+Blue shark (NR),580(16),299,28,245,8,0,560,0,20,121.8,2
+Bluefin tuna (EN),1138(86),540,44,287,253,14,1082,5,51,100.1,4
+Grey seal (NR),53(5),33,6,6,8,0,51,2,0,99,1
+Leatherback turtle (EN),107(2),63,11,33,0,0,79,28,0,118.7,1
+Porbeagle shark (EN),70(4),46,0,24,0,0,70,0,0,133.8,2
+Shortfin mako (EN),29(1),8,0,11,10,0,29,0,0,67.6,1
+Snow crab,371(2),148,0,223,0,0,371,0,0,105.8,2
+White shark (EN),1249(71),647,94,262,223,23,1105,36,108,106.4,6
+Total detections,20978(344),8267,313,11699,650,49,20115,106,757,112.35,

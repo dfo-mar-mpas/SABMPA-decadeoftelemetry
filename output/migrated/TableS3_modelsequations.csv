@@ -1,0 +1,6 @@
+,common_name,temp_eq,depth_eq
+2,Atlantic cod,Temp = 549.96 + -0.271x,Depth = 4536.29 + -2.193x
+4,Atlantic salmon,Temp = -74.96 + 0.039x,Depth = 5420.98 + -2.624x
+5,Blue shark,Temp = -272.17 + 0.137x,Depth = -4708.38 + 2.393x
+6,Bluefin tuna,Temp = -370 + 0.185x,Depth = 6105.73 + -2.971x
+7,White shark,Temp = 233.56 + -0.114x,Depth = 11692.04 + -5.731x

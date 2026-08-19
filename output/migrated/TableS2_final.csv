@@ -1,0 +1,84 @@
+"","Species","Project","Release Location","Detections","Individuals"
+"1","American eel","---","--- ALL LOCATIONS ---",111,5
+"2","American eel","BDLSPG - Apoqnmatulti'k - Bras D'Or Lake","Amaguadee's Pond, Bras d'Or Lake, Cape Breton",7,1
+"3","American eel","BDLSPG - Apoqnmatulti'k - Bras D'Or Lake","Bras d'Or Lake, Cape Breton",31,1
+"4","American eel","BDLSPG - Apoqnmatulti'k - Bras D'Or Lake","Outside John Pauls Pond, Bras d'Or Lake, Cape Breton",16,1
+"5","American eel","BQEEL - Bay of Quinte Eel Tracking","Bay of Quinte, Lake Ontario",57,2
+"6","Atlantic cod","---","--- ALL LOCATIONS ---",14432,48
+"7","Atlantic cod","SBICOD - Cod Movements in the Northern Gulf","Strait of Belle Ils., Gulf of  St. Lawrence",18,1
+"8","Atlantic cod","SGS - OTN Canada Sable Island Grey Seal Bioprobes","East Scotian Shelf",264,4
+"9","Atlantic cod","SGS - OTN Canada Sable Island Grey Seal Bioprobes","Southern St.Anns Bank",14102,41
+"10","Atlantic cod","SPI - Shippagan, NB: Cod tagging","Southern Gulf of St. Lawrence",48,2
+"11","Atlantic halibut","---","--- ALL LOCATIONS ---",506,5
+"12","Atlantic halibut","HALIBT - Acoustic Array and Halibut Tagging","Scotian Shelf",417,2
+"13","Atlantic halibut","MEHAL - Maine Atlantic Halibut Tagging","Gulf of Maine, USA",89,3
+"14","Atlantic mackerel","---","--- ALL LOCATIONS ---",9,1
+"15","Atlantic mackerel","V2LNASTI - Mackerel tracking in the Northwest Arm","Halifax, NS",9,1
+"16","Atlantic salmon","---","--- ALL LOCATIONS ---",2314,97
+"17","Atlantic salmon","ASF - Atlantic Salmon Federation Tagging Projects","Gulf of St. Lawrence or Saint Andrews NB",43,2
+"18","Atlantic salmon","BDK - Overwinter Bras d’Or Atlantic salmon populations","Bras d'Or Lakes, Cape Breton",305,2
+"19","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","Cascapedia",6,1
+"20","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","LaHave River",12,1
+"21","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","LeHave",41,7
+"22","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","Margaree River",91,2
+"23","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","Morell River",75,2
+"24","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","North River",210,2
+"25","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","Restigouche River",7,1
+"26","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","Saint John River",31,2
+"27","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","St Marys River",35,3
+"28","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","St. Mary's",201,10
+"29","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","West River Sheet Harbour",21,1
+"30","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","West branch, St Marys river, Nova Scotia",114,3
+"31","Atlantic salmon","ESRF - Atlantic Salmon Offshore Tracking Project","York River",45,1
+"32","Atlantic salmon","KNE - NOAA Kennebec Salmon Tracking","Kennebec River, Maine, USA",13,1
+"33","Atlantic salmon","MARSS - Maritimes Region Atlantic salmon marine survival and migration","East branch, St Marys river, Nova Scotia",60,5
+"34","Atlantic salmon","NARR - Characterizing the behavior and survival of age 1 hatchery stocked smolts in the Narraguagus River, Maine U.S.A.","Milbridge, Narraguagus River, Maine U.S.A.",11,2
+"35","Atlantic salmon","PBN - NOAA Penobscot Salmon Tracking","Penobscot River, Maine, USA",141,6
+"36","Atlantic salmon","PBSM_QRPT - Quoddy Region Salmon Tracking","Magaguadavic Basin, St. George, NB",36,3
+"37","Atlantic salmon","PBU - USGS: Salmon tagging","Bucksport, Maine, USA.",270,20
+"38","Atlantic salmon","QSLR - St. Lawrence River Fish Monitoring","Gulf of St. Lawrence (estimate)",33,4
+"39","Atlantic salmon","TNGS - Tobique Narrows Generation Station efficiency","Tobique River, NB",6,2
+"40","Atlantic salmon","UNBMIR - UNB Miramichi River","Miramichi River, NB",34,1
+"41","Atlantic salmon","V2LCBHNP - Cape Breton Highlands National Park salmon tracking","Cape Breton Highlands",439,7
+"42","Atlantic salmon","V2LNSSA - Nova Scotia Salmon Association, Sheet Harbour","West River, Sheet Harbour,NS",34,6
+"43","Atlantic sturgeon","---","--- ALL LOCATIONS ---",9,1
+"44","Atlantic sturgeon","QSLR - St. Lawrence River Fish Monitoring","Gulf of St. Lawrence (estimate)",9,1
+"45","Blue shark","---","--- ALL LOCATIONS ---",580,16
+"46","Blue shark","MFSAR - Shark Spatial Ecology and life history in NL waters","Conception Bay 1, NL",120,1
+"47","Blue shark","MFSAR - Shark Spatial Ecology and life history in NL waters","Conception Bay 2, NL",12,1
+"48","Blue shark","MFSAR - Shark Spatial Ecology and life history in NL waters","St. Johns, NL",13,1
+"49","Blue shark","MFSAR - Shark Spatial Ecology and life history in NL waters","St. Mary's Bay, NL",31,1
+"50","Blue shark","NSBS - OTN NS Blue Shark Tracking","Halifax, NS",404,12
+"51","Bluefin tuna","---","--- ALL LOCATIONS ---",1138,86
+"52","Bluefin tuna","BFTTAG - Bluefin tuna high res multi-beam sonar and tagging","PEI, Gulf of St. Lawrence",76,12
+"53","Bluefin tuna","DFOBFT - Long-term monitoring of Atlantic Bluefin tuna and Swordfish","Port Hood, NS",207,12
+"54","Bluefin tuna","TAG - Tag-A-Giant Foundation: Bluefin Tuna Tracking","North Carolina shelf by Hatteras",166,2
+"55","Bluefin tuna","TAG - Tag-A-Giant Foundation: Bluefin Tuna Tracking","Northumberland Straight",72,4
+"56","Bluefin tuna","TAG - Tag-A-Giant Foundation: Bluefin Tuna Tracking","Northumberland Straight and St. Georges Bay, NS",617,56
+"57","Grey seal","---","--- ALL LOCATIONS ---",53,5
+"58","Grey seal","GSFP - Grey seal foraging pressure","Gulf of St. Lawrence",5,2
+"59","Grey seal","GSFP - Grey seal foraging pressure","Scotian Shelf",38,2
+"60","Grey seal","RISME - Pinniped Movement in Rhode Island Waters","Rhode Island, USA",10,1
+"61","Leatherback turtle","---","--- ALL LOCATIONS ---",107,2
+"62","Leatherback turtle","JBLB - Juno Beach Leatherback Tagging","Juno beach, Florida, USA",68,1
+"63","Leatherback turtle","MIGRAMAR.LBTPCR - Leatherback Turtle Tracking in Pacuare Wildlife Reserve, CR","Pacuare Wildlife Reserve, Costa Rica",39,1
+"64","Porbeagle shark","---","--- ALL LOCATIONS ---",70,4
+"65","Porbeagle shark","JPBS - DFO: Porbeagle and Blue Sharks","Emerald Basin",15,1
+"66","Porbeagle shark","JPBS - DFO: Porbeagle and Blue Sharks","Georges Bank",55,3
+"67","Shortfin mako","---","--- ALL LOCATIONS ---",29,1
+"68","Shortfin mako","RICSS - RIDEM DMF Coastal Shark Tagging Study","Block Island, New England, USA",29,1
+"69","Snow crab","---","--- ALL LOCATIONS ---",371,2
+"70","Snow crab","ZSC - Scotian Shelf Snow Crab Tagging","Scotian Shelf",371,2
+"71","White shark","---","--- ALL LOCATIONS ---",1249,71
+"72","White shark","CCOCE - Shelf-associated movements and migration of sharks in the Western North Atlantic Ocean","Hilton Head, South Carolina",7,1
+"73","White shark","CCOCE - Shelf-associated movements and migration of sharks in the Western North Atlantic Ocean","Lunenburg, Nova Scotia",22,2
+"74","White shark","CCOCE - Shelf-associated movements and migration of sharks in the Western North Atlantic Ocean","NE Atlantic",120,10
+"75","White shark","CCOCE - Shelf-associated movements and migration of sharks in the Western North Atlantic Ocean","Scatarie Island, Cape Breton, Nova Scotia",37,1
+"76","White shark","CCOCE - Shelf-associated movements and migration of sharks in the Western North Atlantic Ocean","W. Ironbound I., Nova Scotia",62,4
+"77","White shark","HMSWEA - Offshore Wind Telemetry","Nantucket, USA",51,3
+"78","White shark","HMSWEA - Offshore Wind Telemetry","Southern New England, USA",3,1
+"79","White shark","MSRPWS - Massachusetts White Shark Research Program","Cape cod, MA",896,42
+"80","White shark","NYSHARKS - New York Juvenile White Shark Study","Long Island, NY, USA",39,5
+"81","White shark","SBUSOMAS01 - SBU Coastal New York Bight Acoustic Network","Long Island, USA",3,1
+"82","White shark","V2LWSAMP - White Shark Acoustic Monitoring Program","Kejimkujik Park, NS",5,1
+"83","White shark","VMLPPWS - Grey seals and white sharks in Atlantic Canadian waters","Magdalen Islands, Gulf of St. Lawrence",4,1
