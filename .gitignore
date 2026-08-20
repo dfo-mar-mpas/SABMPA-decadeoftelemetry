@@ -1,4 +1,5 @@
 data/raw/
-.RData/
-.Rhistory/
+.RData
+.Rhistory
 .Rproj.user/
+99_finalize_repo.R
