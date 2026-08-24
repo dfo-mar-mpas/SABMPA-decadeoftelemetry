@@ -54,6 +54,8 @@ library(scales)
 library(viridis)
 library(RColorBrewer)
 library(brew) # TODO: remove / check needed once scripts are running smooth
+library(patchwork)
+library(cowplot)
 
 # ---------------------------------------------------------
 # 3. GLOBAL OPTIONS & CONFIGURATION

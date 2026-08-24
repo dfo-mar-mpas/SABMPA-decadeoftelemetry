@@ -3,3 +3,5 @@ data/raw/
 .Rhistory
 .Rproj.user/
 99_finalize_repo.R
+code/migrated/
+data/processed/migrated/

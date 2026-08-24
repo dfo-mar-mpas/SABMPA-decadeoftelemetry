@@ -12,9 +12,13 @@
 # 0. Load project configuration and packages
 source("code/00_setup.R")
 # ---------------------------------------------------------
-# --- on the full detection dataset
+# ---------------------------------------------------------
+# Load the data
+# ---------------------------------------------------------
+SAB_glatos_FINAL <- read.csv("data/processed/SAB_glatos_FINAL.csv")
 # ---------------------------------------------------------
 # 1. Identify individuals with detections in > 1 year 
+# ---------------------------------------------------------
 returning_ids <- SAB_glatos_FINAL %>%
   group_by(animal_id) %>%
   summarise(n_years = n_distinct(yearcollected)) %>%
@@ -22,6 +26,7 @@ returning_ids <- SAB_glatos_FINAL %>%
   pull(animal_id)
 # ---------------------------------------------------------
 # 2. Filter the main dataset for only these returning individuals
+# ---------------------------------------------------------
 returning_fish_data <- SAB_glatos_FINAL %>%
   filter(animal_id %in% returning_ids)
 
@@ -38,7 +43,7 @@ detection_periods <- returning_fish_data %>%
 print(detection_periods)
 # ---------------------------------------------------------
 # 3. Plotting the results in an abacus style plot
-
+# ---------------------------------------------------------
 ggplot(returning_fish_data, aes(x = detection_timestamp_utc, y = as.factor(animal_id), color = common_name)) +
   geom_point(size = 1.5, alpha = 0.7) +
   theme_bw() +
@@ -57,14 +62,17 @@ ggplot(returning_fish_data, aes(x = detection_timestamp_utc, y = as.factor(anima
 ## --- on detection events
 # ---------------------------------------------------------
 # 1. Classify discrete detection events
+# ---------------------------------------------------------
 # 'time_sep' defines the gap (in seconds) to start a new event
 events <- detection_events(SAB_glatos_FINAL, time_sep = 43200)
 # ---------------------------------------------------------
 # 2. Extract years to identify annual returners
+# ---------------------------------------------------------
 events <- events %>%
   mutate(year_first = year(first_detection))
 # ---------------------------------------------------------
 # 3. Filter for individuals detected in > 1 calendar year
+# ---------------------------------------------------------
 returning_ids <- events %>%
   group_by(animal_id) %>%
   summarise(n_years = n_distinct(year_first)) %>%
@@ -87,6 +95,7 @@ annual_summary <- events_returning %>%
 print(annual_summary)
 # ---------------------------------------------------------
 # 4. Create the publication-quality abacus plot
+# ---------------------------------------------------------
 ggplot(events_returning) +
   # Dotted lines connecting the events for each individual
   geom_line(aes(x = first_detection, y = as.factor(animal_id), group = animal_id), 
@@ -110,6 +119,7 @@ ggplot(events_returning) +
 
 # ---------------------------------------------------------
 # 1. Split the data by species, run events, and add common_name back
+# ---------------------------------------------------------
 events_list <- SAB_glatos_FINAL %>%
   split(.$common_name) %>%
   map(~{
@@ -122,9 +132,11 @@ events_list <- SAB_glatos_FINAL %>%
   })
 # ---------------------------------------------------------
 # 2. Combine back into one master events file
+# ---------------------------------------------------------
 events_all <- bind_rows(events_list)
 # ---------------------------------------------------------
 # 3. Identify multi-year returners (detected in > 1 calendar year)
+# ---------------------------------------------------------
 returning_ids <- events_all %>%
   mutate(year_val = lubridate::year(first_detection)) %>%
   group_by(animal_id) %>%
@@ -133,10 +145,12 @@ returning_ids <- events_all %>%
   pull(animal_id)
 # ---------------------------------------------------------
 # 4. Filter for only the returners
+# ---------------------------------------------------------
 events_returning <- events_all %>%
   filter(animal_id %in% returning_ids)
 # ---------------------------------------------------------
 #  5. Abacus Plot with Dotted Connections
+# ---------------------------------------------------------
 ggplot(events_returning, aes(x = first_detection, y = as.factor(animal_id))) +
   # Draw dotted lines between the first and last recorded events for each fish
   geom_line(aes(group = animal_id), linetype = "dotted", color = "gray70") +
@@ -157,6 +171,7 @@ ggplot(events_returning, aes(x = first_detection, y = as.factor(animal_id))) +
 # Generate Detection Events and Identify Returners
 # ---------------------------------------------------------
 # 1. Run detection events by species to retain common_name
+# ---------------------------------------------------------
 events_all <- SAB_glatos_FINAL %>%
   split(.$common_name) %>%
   map_df(~{
@@ -167,6 +182,7 @@ events_all <- SAB_glatos_FINAL %>%
   })
 # ---------------------------------------------------------
 # 2. Identify and filter for annual returners (>1 year detected)
+# ---------------------------------------------------------
 events_returning <- events_all %>%
   mutate(year = year(first_detection)) %>%
   group_by(animal_id) %>%
