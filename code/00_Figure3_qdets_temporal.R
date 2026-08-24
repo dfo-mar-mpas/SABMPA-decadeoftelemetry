@@ -184,7 +184,7 @@ final_layout
 # ---------------------------------------------------------
 # save the plot
 # ---------------------------------------------------------
-ggsave("output/Figure2.jpg", 
+ggsave("output/Figure3.jpg", 
        plot = final_layout, 
        width = 23.9,
        height = 18.2,
