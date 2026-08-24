@@ -46,3 +46,25 @@ To reproduce the analysis and figures from the manuscript:
 If you use this code or data, please cite the original paper:
 
 Pettitt-Wade, H.,  Jeffery, N., Zisserson, B., Hartery, C., Stanley, R.R.E. 2016. A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic. CJFAS. Accepted. DOI:
+
+## Figures
+
+Figure 1 Map of the study area
+
+<img src="output/migrated/Figure1.jpg" width="600">
+
+Figure 2 Residency Index for fish tagging by the SABMPA project in St. Anns Bank MPA
+
+<img src="output/migrated/Figure2_matched_RI.tiff" width="600">
+
+Figure 3 Species occorances over time in St Anns Bank MPA from acoustic telemetry detections of tags deployed by other projects
+
+<img src="output/migrated/Figure3_qual_temporal.tiff" width="600">
+
+Figure 4 Map showing release locations of species detected in St. Anns Bank MPA 2015-2025
+
+<img src="output/migrated/Figure4.jpg" width="600">
+
+Figure 5 Rate of change effects plot from Linear Mixed Effects models of individuals detected over time in relation to receiver temperature and depth
+
+<img src="output/migrated/Figure5_LMMS_effects.tiff" width="600">
