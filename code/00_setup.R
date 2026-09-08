@@ -41,6 +41,10 @@ library(oceanmap) # TODO: remove / check needed once scripts are running smooth
 library(arcpullr) # TODO: remove / check needed once scripts are running smooth
 library(geosphere)
 library(ggspatial)
+library(broom) # For tidy model outputs
+library(purrr)
+library(lme4)
+library(lmerTest) # Adds p-values to lmer
 
 # Visualization & Mapping
 library(ggplot2)
@@ -56,6 +60,8 @@ library(RColorBrewer)
 library(brew) # TODO: remove / check needed once scripts are running smooth
 library(patchwork)
 library(cowplot)
+
+
 
 # ---------------------------------------------------------
 # 3. GLOBAL OPTIONS & CONFIGURATION
