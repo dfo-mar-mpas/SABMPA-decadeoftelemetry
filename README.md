@@ -1,3 +1,5 @@
+### Status: This repository is currently undergoing final data formatting for publication. Raw datasets are being compressed into Parquet format and will be uploaded shortly. The final reproducible release (v1.0) and associated DOI will be minted prior to the manuscript's official publication.
+# ------------------------------------------------------------------------
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic
 ### Harri Pettitt-Wade 1**, Nicholas W. Jeffery 1, Ben Zisserson 1, Cassandra Hartery 2, Ryan R.E. Stanley 1
 
@@ -15,7 +17,7 @@ _
 
 ## Repository Structure
 
-- data/raw/: Raw telemetry detections and metadata (Not tracked on GitHub due to file size). 
+- data/raw/: Raw telemetry detections and metadata (Not currently tracked on GitHub due to file size). 
 
 - data/processed/: Cleaned dataset used for final analyses and model fitting.
 
