@@ -67,4 +67,4 @@ Figure 4 Map showing release locations of species detected in St. Anns Bank MPA 
 
 Figure 5 Rate of change effects plot from Linear Mixed Effects models of individuals detected over time in relation to receiver temperature and depth
 
-<img src="output/migrated/Figure5_LMMS_effects.tiff" width="600">
+<img src="output/Figure5_Model_Effects_README.pngf" width="600">
