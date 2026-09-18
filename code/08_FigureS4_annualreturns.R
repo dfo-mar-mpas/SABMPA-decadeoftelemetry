@@ -1,13 +1,13 @@
+# ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script 0#: Individual Annual Returns
+# Script: 0#_annualreturns.R
 # Author: Harri Pettitt-Wade
-# contact: harri.pettitt-wade@dfo-mpo.gc.ca
 # Date Updated: 2026-08-20
-
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
+# ===================================================================
+
 # TODO: tidy the code and remove repeats (i.e., use code closer to the bottom)
 # TODO: test run the code
-
 # ---------------------------------------------------------
 # 0. Load project configuration and packages
 source("code/00_setup.R")

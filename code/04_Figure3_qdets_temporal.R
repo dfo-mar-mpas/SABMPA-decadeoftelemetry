@@ -1,10 +1,11 @@
+# ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script 0#: Figure3
+# Script: 04_Figure3_qdets_temporal.R
 # Author: Harri Pettitt-Wade
-# contact: harri.pettitt-wade@dfo-mpo.gc.ca
 # Date Updated: 2026-08-24
-
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
+# ===================================================================
+
 # TODO: structure the code
 # TODO: tidy the code and remove repeats
 # TODO: test run the code

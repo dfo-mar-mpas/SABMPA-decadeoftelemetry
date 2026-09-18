@@ -1,14 +1,15 @@
+# ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script 00: Project Setup and Configuration
+# Script: 00_setup.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-08-20
-
 # Accompanying the manuscript:
 # Harri Pettitt-Wade, Nicholas W. Jeffery, Ben Zisserson, Cassandra Hartery, Ryan R.E. Stanley. 2026. 
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic.
 # Accepted 4 July 2026
 # Canadian Journal of Fisheries and Aquatic Sciences. 
-# DOI: [Insert DOI here once assigned by the publisher]
+# DOI: [Insert publication DOI here once assigned by the publisher]
+# ===================================================================
 
 # ---------------------------------------------------------
 # 1. INSTALLATION NOTES (Run manually once if needed)
@@ -31,6 +32,7 @@ library(stats)
 library(stringr)
 library(purrr)
 library(scales)
+library(readr)
 
 # Spatial & Telemetry Analysis
 library(sf)
@@ -45,6 +47,8 @@ library(broom) # For tidy model outputs
 library(purrr)
 library(lme4)
 library(lmerTest) # Adds p-values to lmer
+library(broom.mixed)
+library(performance)
 
 # Visualization & Mapping
 library(ggplot2)
@@ -60,7 +64,7 @@ library(RColorBrewer)
 library(brew) # TODO: remove / check needed once scripts are running smooth
 library(patchwork)
 library(cowplot)
-
+library(smoothr) 
 
 
 # ---------------------------------------------------------
@@ -93,13 +97,3 @@ knitr::opts_chunk$set(
 # ---------------------------------------------------------
 # Load Stadia Maps API key securely from local .Renviron file
 ggmap::register_stadiamaps(Sys.getenv("STADIA_MAPS_KEY"))
-
-# ---------------------------------------------------------
-# 5. CUSTOM PLOTTING THEMES & PALETTES (Placeholders)
-# ---------------------------------------------------------
-# TODO: Define standard ggplot theme
-# theme_sabmpa <- theme_bw(...)
-# theme_set(theme_sabmpa)
-
-# TODO: Define standard species color palette
-# species_palette <- c("White shark" = "#...", "Atlantic cod" = "#...")

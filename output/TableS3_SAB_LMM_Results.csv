@@ -1,0 +1,11 @@
+common_name,variable,Annual_Rate,Std_Error,P_Value,Significant,n_fish,n_years,total_days,R2_Marginal
+White shark,Depth (m / yr),-5.7308,1.9323,0.0036,Yes,71,7,127,0.065
+Atlantic salmon,Depth (m / yr),-2.6245,1.0369,0.0129,Yes,97,9,117,0.058
+Bluefin tuna,Depth (m / yr),-2.9705,1.2213,0.018,Yes,86,10,133,0.046
+Blue shark,Depth (m / yr),2.393,1.039,0.0275,Yes,16,8,36,0.132
+Atlantic cod,Depth (m / yr),-2.1933,1.6542,0.1871,No,48,6,223,0.009
+Bluefin tuna,Temperature (°C / yr),0.1848,0.062,0.0035,Yes,86,10,133,0.065
+Atlantic cod,Temperature (°C / yr),-0.2715,0.1261,0.0331,Yes,48,6,223,0.024
+White shark,Temperature (°C / yr),-0.114,0.0714,0.1131,No,71,7,127,0.021
+Blue shark,Temperature (°C / yr),0.1365,0.0941,0.1636,No,16,8,36,0.061
+Atlantic salmon,Temperature (°C / yr),0.0386,0.053,0.4679,No,97,9,117,0.005

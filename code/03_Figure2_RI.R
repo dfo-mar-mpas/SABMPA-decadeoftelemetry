@@ -1,14 +1,15 @@
+# ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script 0#: RI plots - Residenct Index on SABMPA tagged fish
+# Script: 03_Figure2_RI.R
 # Author: Harri Pettitt-Wade
-# contact: harri.pettitt-wade@dfo-mpo.gc.ca
 # Date Updated: 2026-08-24
-
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
+# Description: Residency Index on SABMPA tagged fish and Figure 2 plot.
+# ===================================================================
+
 # TODO: structure the code
 # TODO: tidy the code and remove repeats
 # TODO: test run the code
-# 
 # ---------------------------------------------------------
 # Required packages (run 00_setup.R). 
 # library(patchwork), library(ggplot2), library(dplyr)
