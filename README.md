@@ -1,4 +1,3 @@
-### Status: This repository is currently undergoing final data formatting for publication. Raw datasets are being compressed into Parquet format and will be uploaded shortly. The final reproducible release (v1.0) and associated DOI will be minted prior to the manuscript's official publication.
 # ------------------------------------------------------------------------
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic
 ### Harri Pettitt-Wade 1**, Nicholas W. Jeffery 1, Ben Zisserson 1, Cassandra Hartery 2, Ryan R.E. Stanley 1
@@ -11,7 +10,8 @@
 ## Overview
 
 This repository contains the R code and open data access for the manuscript accepted for publication in the Canadian Journal of Fisheries and Aquatic Sciences (CJFAS) Special Collection 'Fish Telemetry to Address Management and Conservation" (https://cdnsciencepub.com/topic/cjfas-icftconference2025; Pettitt-Wade et al. 2026). Raw acoustic telemetry data is available on the Ocean Tracking Network (OTN) data portal (Stanley et al. 2016; https://members.oceantrack.org/project?ccode=SABMPA). 
-
+# ------------------------------------------------------------------------
+### Status: This repository is currently undergoing final data formatting for publication. Raw datasets are being compressed into Parquet format and will be uploaded shortly. The final reproducible release (v1.0) and associated DOI will be minted prior to the manuscript's official publication.
 Please reach out for questions or further information including appropriate use of the data and code.
 _
 
