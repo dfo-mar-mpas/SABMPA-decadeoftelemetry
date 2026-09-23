@@ -117,6 +117,12 @@ SAB_clean_for_join <- SAB_qdet25 %>%
 SAB_enriched_final <- SAB_clean_for_join %>%
   left_join(qual_fishdata_clean, by = c("tag_ID" = "fieldnumber"))
 
+# Drop contact information before exporting the final dataset for public release
+SAB_enriched_final <- SAB_enriched_final %>%
+  select(-contactPOC, -contactPI) # Add any other email/phone columns here
+
+saveRDS(SAB_enriched_final, "data/processed/SAB_enriched_final.rds")
+
 # ---------------------------------------------------------
 # 5. Export Processed Data
 # ---------------------------------------------------------
