@@ -58,7 +58,8 @@ matched_SAB_25_f1 <- matched_SAB_to2025 %>%
   filter(!station %in% c('SAB_SB1', 'SAB_SB2', 'SAB_SB3', 'SAB_SB4', 'SAB_SB5'))
 
 # Create Table S1 Dataset (All Cleaned Final)
-# Define spatial bounds
+# TODO: Change this so this just sets bounds for Table S1 and any plotting required in SAB
+# Define spatial bounds to within SAB
 lat_north <- 47.00
 lat_south <- 45.58
 lon_east  <- -59.00
@@ -104,7 +105,7 @@ qual_fishdata_clean <- read_csv("data/processed/qual_fishdata_Feb2026.csv") %>%
 common_cols <- setdiff(intersect(names(SAB_qdet25), names(qual_fishdata_clean)), c("tag_ID", "fieldnumber"))
 SAB_clean_for_join <- SAB_qdet25 %>%
   select(-any_of(common_cols)) %>%
-  # Remove Scatarie Bank receivers
+  # Remove Scatarie Bank receivers for this manuscript (separate study)
   filter(!station %in% c('SAB_SB1', 'SAB_SB2', 'SAB_SB3', 'SAB_SB4', 'SAB_SB5')) %>%
   # Standardize array names
   mutate(
@@ -117,6 +118,7 @@ SAB_clean_for_join <- SAB_qdet25 %>%
 SAB_enriched_final <- SAB_clean_for_join %>%
   left_join(qual_fishdata_clean, by = c("tag_ID" = "fieldnumber"))
 
+### ------------ REMOVE CONTACT INFO FROM ALL FILES PRIOR TO FINAL RELEASE -------------- ### 
 # Drop contact information before exporting the final dataset for public release
 SAB_enriched_final <- SAB_enriched_final %>%
   select(-contactPOC, -contactPI) # Add any other email/phone columns here

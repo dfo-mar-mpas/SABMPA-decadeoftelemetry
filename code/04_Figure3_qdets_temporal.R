@@ -12,16 +12,16 @@
 # ---------------------------------------------------------
 # Required packages (run 00_setup.R). 
 # ---------------------------------------------------------
-#library(dplyr)
-#library(ggplot2)
-#library(lubridate)
-#library(patchwork)
-#library(scales)
-#library(cowplot)
 # ---------------------------------------------------------
 # 0. Load project configuration and packages
 source("code/00_setup.R")
 # ---------------------------------------------------------
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(patchwork)
+library(scales)
+library(cowplot)
 # ---------------------------------------------------------
 # Load the data - ensure 
 # ---------------------------------------------------------

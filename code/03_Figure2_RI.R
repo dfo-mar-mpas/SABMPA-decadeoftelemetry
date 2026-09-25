@@ -9,14 +9,18 @@
 
 # TODO: structure the code
 # TODO: tidy the code and remove repeats
+# TODO: make sure the previous steps are in previous scripts 
+# e.g., to generate all_ri_data_SAB.csv
 # TODO: test run the code
 # ---------------------------------------------------------
 # Required packages (run 00_setup.R). 
-# library(patchwork), library(ggplot2), library(dplyr)
 # ---------------------------------------------------------
 # 0. Load project configuration and packages
 source("code/00_setup.R")
 # ---------------------------------------------------------
+library(patchwork)
+library(ggplot2)
+library(dplyr)
 # ---------------------------------------------------------
 # 1. Load species Residency Index (RI) Data from matched detections
 # ---------------------------------------------------------
