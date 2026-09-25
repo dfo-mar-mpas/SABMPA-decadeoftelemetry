@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 03_Figure2_RI.R
+# Script: 05_Figure2_RI.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-08-24
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS

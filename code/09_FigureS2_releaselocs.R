@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 03_FigureS2_releaselocs.R
+# Script: 09_FigureS2_releaselocs.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-08-24
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
