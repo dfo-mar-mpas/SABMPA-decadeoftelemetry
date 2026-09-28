@@ -8,7 +8,7 @@
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic.
 # Accepted 4 July 2026
 # Canadian Journal of Fisheries and Aquatic Sciences. 
-# DOI: [Insert publication DOI here once assigned by the publisher]
+# DOI: [Will be available prior to final publication]
 # ===================================================================
 
 # ---------------------------------------------------------
@@ -22,7 +22,6 @@
 # ---------------------------------------------------------
 
 # Data Wrangling & Manipulation
-library(plyr) # TODO: remove once scripts are running smooth
 library(dplyr)
 library(tidyr)
 library(data.table)
@@ -36,11 +35,8 @@ library(readr)
 
 # Spatial & Telemetry Analysis
 library(sf)
-library(sp) # TODO: remove once scripts are running smooth
-library(raster) # TODO: switch for terra() once scripts are running smooth
+library(raster) # could switch for terra()
 library(glatos)
-library(oceanmap) # TODO: remove / check needed once scripts are running smooth
-library(arcpullr) # TODO: remove / check needed once scripts are running smooth
 library(geosphere)
 library(ggspatial)
 library(broom) # For tidy model outputs
@@ -53,19 +49,24 @@ library(performance)
 # Visualization & Mapping
 library(ggplot2)
 library(treemapify)
-library(gganimate) # TODO: remove / check needed once scripts are running smooth
 library(ggmap)
 library(leaflet)
 library(plotly)
-library(ggridges) # TODO: remove / check needed once scripts are running smooth
 library(scales)
 library(viridis)
 library(RColorBrewer)
-library(brew) # TODO: remove / check needed once scripts are running smooth
 library(patchwork)
 library(cowplot)
 library(smoothr) 
 
+# Potential additional useful packages for working with this data
+#library(sp)
+#library(oceanmap)
+#library(arcpullr)
+#library(gganimate)
+#library(ggridges)
+#library(brew)
+#library(terra)
 
 # ---------------------------------------------------------
 # 3. GLOBAL OPTIONS & CONFIGURATION

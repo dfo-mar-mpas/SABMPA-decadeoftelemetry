@@ -5,10 +5,6 @@
 # Date Updated: 2026-08-24
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
 # ===================================================================
-
-# TODO: structure the code
-# TODO: tidy the code and remove repeats
-# TODO: test run the code
 # ---------------------------------------------------------
 # Required packages (run 00_setup.R). 
 # ---------------------------------------------------------

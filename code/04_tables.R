@@ -7,7 +7,6 @@
 # Description: Generates core tagging and detection demographic tables
 #              (Table 1, Table 2, Table 3, Table S1) for SABMPA project tags.
 # ===================================================================
-
 source("code/00_setup.R")
 
 library(dplyr)
@@ -135,8 +134,7 @@ print(SAB_qualified_summary)
 write.csv(SAB_qualified_summary,"output/Table3_SAB_qualified_summary.csv")
 
 # ---------------------------------------------------------
-# TODO: Update the yearly release code to match MS table S1
-# 4. Table S1: Annual Detections vs Releases - UPDATE SO THIS IS FOR QDETS (SAB_tag_metadata is our project tags)
+# 4. Table S1: Annual Detections vs Releases
 # Tagged individuals detected annually vs released annually
 # ---------------------------------------------------------
 # Calculate yearly releases from metadata

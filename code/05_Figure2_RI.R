@@ -7,11 +7,6 @@
 # Description: Residency Index on SABMPA tagged fish and Figure 2 plot.
 # ===================================================================
 
-# TODO: structure the code
-# TODO: tidy the code and remove repeats
-# TODO: make sure the previous steps are in previous scripts 
-# e.g., to generate all_ri_data_SAB.csv
-# TODO: test run the code
 # ---------------------------------------------------------
 # Required packages (run 00_setup.R). 
 # ---------------------------------------------------------

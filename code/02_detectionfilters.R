@@ -7,7 +7,6 @@
 # Description: Applies MinLag, singleton, predation, mortality, and 
 #              velocity filters to finalize the telemetry dataset.
 # ===================================================================
-
 # ---------------------------------------------------------
 # 0. Setup & Packages
 # ---------------------------------------------------------
@@ -78,7 +77,7 @@ SAB_step3_clean <- SAB_step2_clean %>%
 # ---------------------------------------------------------
 # 4. Velocity Calculation (USER INPUT REQUIRED)
 # ---------------------------------------------------------
-# TODO: Calculate distance and time between consecutive detections here.
+# Calculate distance and time between consecutive detections here.
 # The resulting dataframe MUST be named 'SAB_speed_eval' and contain 
 # a column named 'velocity_ms' for the next step to work.
 
