@@ -2,13 +2,12 @@
 ### SABMPA_decadeoftelemetry ###
 # Script: 08_FigureS1_REI.R
 # Author: Harri Pettitt-Wade
-# Date Updated: 2026-08-24
+# Date Updated: 2026-10-17
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
-# Description: Calculates Receiver Efficiency Index (REI) using the 
-#              glatos package, calculates Species Richness (Sr), 
-#              and generates Figure S1.
+# Description: Calculates Receiver Efficiency Index (REI) on qualified 
+#              detections using the glatos package, calculates Species 
+#              Richness (Sr), and generates Figure S1.
 # ===================================================================
-
 # ---------------------------------------------------------
 # 1. Setup & Package Loading
 # ---------------------------------------------------------
@@ -21,16 +20,44 @@ library(sf)
 library(ggplot2)
 library(ggnewscale)
 
-# Load the processed data
-SAB_glatos_FINAL <- readRDS("data/processed/SAB_glatos_FINAL.rds")
-# (Assumes SAB_deploys_final, basemap, sab_bs_clipped, sab, and habitat_cols 
-# are loaded via 00_setup.R or previous scripts)
+## --- Load the processed, cleaned and filtered files if not loaded already
+
+# Receiver deployments
+SAB_deploys_final <- readRDS("data/processed/SAB_deploys_final.rds")
+
+# Qualified detections with species metadata
+SAB_glatos_Q25_FINAL <- readRDS("data/processed/SAB_glatos_Q25_FINAL.rds")
+
+
+## --- Or load in all these prepared files and jump to step 3.
+SAB_det_ready <- readRDS("data/processed/SAB_det_ready_Q.rds")
+SAB_dep_ready <- readRDS("data/processed/SAB_dep_ready_Q.rds")
+
+# -- set the geographic mapping parameters
+#Projections ------------
+latlong <- "+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0"
+utm_mar <- "+proj=utm +zone=20 +datum=NAD83 +units=km +no_defs +ellps=GRS80 +towgs84=0,0,0"
+
+## --- Load shapefiles
+# SAB NS basemap
+basemap <- readRDS("data/shapefiles/basemap.rds")
+
+sab <- read_sf("data/shapefiles/SAB_boundary_zones_2017.shp")%>%
+  st_transform(latlong)
+
+# Benthoscape habitat classifications clipped by the SAB MPA boundary
+sab_bs_clipped <- readRDS("data/shapefiles/sab_bs_clipped.rds")
+
+## --- Load the plotting color palette
+habitat_cols <- readRDS("data/processed/habitat_cols.rds")
 
 # ---------------------------------------------------------
-# 2. Format Detections and Deployments for glatos
+# 2. Format Detections and Deployments for glatos if not done already (see scripts 01-03)
 # ---------------------------------------------------------
-# Format Detections
-SAB_det_ready <- SAB_glatos_FINAL %>%
+# Note the data should already be in glatos format. See previous scripts for details.
+
+# Format Detections for glatos REI
+SAB_det_ready <- SAB_glatos_Q25_FINAL %>%
   separate(transmitter_id, into = c("transmitter_codespace", "tag_ID"), 
            sep = "-(?=[^-]+$)", remove = FALSE) %>%
   transmute(
@@ -40,7 +67,7 @@ SAB_det_ready <- SAB_glatos_FINAL %>%
     deploy_long = as.numeric(deploy_long),
     station = as.character(station),
     common_name_e = as.character(common_name),
-    utc_release_date_time = as.Date(UTC_RELEASE_DATE_TIME, tz = "UTC"),
+    release_date = as.Date(release_date, tz = "UTC"),
     release_latitude = as.numeric(RELEASE_LATITUDE),
     release_longitude = as.numeric(RELEASE_LONGITUDE),
     capture_location = as.character(RELEASE_LOCATION),
@@ -55,10 +82,10 @@ SAB_det_ready <- SAB_glatos_FINAL %>%
     )
   )
 
-# Format Deployments
+# Format Deployments for glatos REI
 SAB_dep_ready <- SAB_deploys_final %>%
   transmute(
-    station = as.character(station_renamed),
+    station = as.character(station),
     deploy_date_time = as.POSIXct(deploy_date, tz = "UTC"),
     recover_date_time = as.POSIXct(recovery_date, tz = "UTC"),
     deploy_lat = as.numeric(stn_lat),
@@ -69,9 +96,10 @@ SAB_dep_ready <- SAB_deploys_final %>%
       TRUE ~ "Other"
     )
   ) %>%
-  # Cap unrecovered receivers to current date for calculations
+  # Cap unrecovered receivers to current date for calculations if not removed already (see scripts 01-02)
   mutate(recover_date_time = replace(recover_date_time, is.na(recover_date_time), Sys.time()))
-
+    # NOTE: Your computer system time needs to be reasonably accurate for this to work as 
+    # intended. Alternatively, you could remove by the 'RECOVERED' column or by the specific date.
 # ---------------------------------------------------------
 # 3. Calculate Independent REI & Species Richness
 # ---------------------------------------------------------
@@ -121,11 +149,19 @@ sab <- sab %>%
 # ---------------------------------------------------------
 # 5. Generate the Final Full-Page Map
 # ---------------------------------------------------------
+
+# Set the plotting window
+# Define the spatial bounds (West longitudes must be negative)
+
+plot_boundaries <- c(c(-59.7,-58.3,45.7,46.5))
+
 p1_rei_full_page <- ggplot() +
   # 1. Base Layers
   geom_sf(data = basemap) +
+  # 'sab_bs_clipped' was created using st_make_valid/st_intersection
   geom_sf(data = sab_bs_clipped, aes(fill = Assigned_c), color = NA, alpha = 1) +
   scale_fill_manual(name = "Benthoscape habitat", values = habitat_cols) +
+  
   
   # 2. Bold MPA Border
   geom_sf(data = sab, fill = NA, color = "gray23", linewidth = 1) +
@@ -146,7 +182,7 @@ p1_rei_full_page <- ggplot() +
   scale_color_manual(name = "Array design", 
                      values = c("Single Gate (2021-2025)" = "black", 
                                 "Double Gate (2015-2021)" = "red"),
-                     guide = "none") + # Hidden in final map as requested
+                     guide = "none") + # Hidden in final map
   
   # 5. Zone Labels
   geom_sf_text(data = sab %>% filter(Zone != "4"), aes(label = Zone), 
@@ -170,26 +206,18 @@ p1_rei_full_page <- ggplot() +
     legend.title = element_text(size = 10),
     plot.margin = margin(1, 1, 1, 1, "cm")
   ) +
-  labs(x = NULL, y = NULL)
+  labs(x = NULL, y = NULL) +
+  coord_sf(xlim=plot_boundaries[c(1,2)],ylim=plot_boundaries[c(3,4)],expand=0)
 
 print(p1_rei_full_page)
 
 # ---------------------------------------------------------
-# 6. Export Final Assets
+# 6. Export Final Figure
 # ---------------------------------------------------------
-# TIFF for final publication
-ggsave("output/Figure_REI_FullPage.tiff", 
-       plot = p1_rei_full_page, 
-       width = 8.5, 
-       height = 9, 
-       units = "in", 
-       dpi = 300, 
-       compression = "lzw")
-
 # PNG for GitHub README
-ggsave("output/Figure_REI_FullPage.png", 
+ggsave("output/Figure_S1_REI_Q.png", #save as .tiff for publication quality
        plot = p1_rei_full_page, 
        width = 8.5, 
        height = 9, 
        units = "in", 
-       dpi = 150)
+       dpi = 150) # save at 300 dpi for publication quality

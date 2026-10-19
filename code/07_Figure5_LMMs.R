@@ -2,13 +2,12 @@
 ### SABMPA_decadeoftelemetry ###
 # Script: 07_Figure5_LMMs.R
 # Author: Harri Pettitt-Wade
-# Date Updated: 2026-08-24
+# Date Updated: 2026-10-17
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
 # Description: Fits Linear Mixed Effects Models for environmental trends with 
 #             individual species occurrences from SABMPA acoustic telemetry data 
 #             and generates Figure 5 and data for Table S3 for the CJFAS manuscript.
 # ===================================================================
-
 # ---------------------------------------------------------
 # 0. Load project configuration and packages
 # ---------------------------------------------------------
@@ -25,20 +24,21 @@ library(ggplot2)
 library(readr)
 
 # Load the data
-SAB_model_data <- readRDS("data/processed/SAB_model_data.rds")
+SAB_model_data_Q <- readRDS("data/processed/SAB_model_data_Q.rds")
+# This is the final qualified detection file with environmental and habitat data included
 
 # ---------------------------------------------------------
 # 1. Data Preparation & Filtering
 # ---------------------------------------------------------
 # Add numeric year and array design eras
-model_ready_data <- SAB_model_data %>%
+model_ready_data <- SAB_model_data_Q %>%
   mutate(
     year_numeric = as.numeric(format(date_daily, "%Y")) + (as.numeric(format(date_daily, "%j")) / 365),
     array_design = ifelse(grepl("^OTN_", station), "Single (2021-2025)", "Double (2015-2021)")
   )
 
 # Aggregate to Daily Mean per Individual to prevent over-weighting by highly detected tags
-daily_indiv_data <- model_ready_data %>%
+model_daily_indiv_data <- model_ready_data %>%
   group_by(common_name, animal_id, array_design, year_numeric, date_daily) %>%
   summarise(
     temperature = mean(temperature, na.rm = TRUE),
@@ -47,7 +47,7 @@ daily_indiv_data <- model_ready_data %>%
   )
 
 # Filter for species with sufficient statistical power (> 5 individuals, >= 2 years)
-power_species <- model_ready_data %>%
+model_power_species <- model_ready_data %>%
   group_by(common_name) %>%
   summarise(
     n_fish = n_distinct(animal_id), 
@@ -60,8 +60,8 @@ power_species <- model_ready_data %>%
 # 2. Linear Mixed-Effects Models (LMM)
 # ---------------------------------------------------------
 # Calculate population-level annual change, correcting for array shifts
-rigorous_results_detailed <- daily_indiv_data %>%
-  filter(common_name %in% power_species) %>%
+model_results_detailed <- model_daily_indiv_data %>%
+  filter(common_name %in% model_power_species) %>%
   split(.$common_name) %>%
   map_df(~{
     
@@ -101,8 +101,8 @@ rigorous_results_detailed <- daily_indiv_data %>%
 # 3. Format Results & Prepare Plot Metadata
 # ---------------------------------------------------------
 # Generate sidebar metadata for the y-axis (n fish | years | total days)
-species_metadata <- daily_indiv_data %>%
-  filter(!common_name %in% c("Atlantic halibut", "American eel")) %>% # check to remove species with insuficient data
+model_species_metadata <- model_daily_indiv_data %>%
+  filter(!common_name %in% c("Atlantic halibut", "American eel")) %>% # check to remove species with insufficient data
   group_by(common_name) %>%
   summarise(
     n_fish = n_distinct(animal_id),
@@ -113,9 +113,9 @@ species_metadata <- daily_indiv_data %>%
   )
 
 # Join metadata to model results and format for plotting
-p_effects_refined <- rigorous_results_detailed %>%
-  filter(!common_name %in% c("Atlantic halibut", "American eel")) %>% # check to remove species with insuficient data
-  left_join(species_metadata, by = "common_name") %>%
+model_p_effects_refined <- model_results_detailed %>%
+  filter(!common_name %in% c("Atlantic halibut", "American eel")) %>% # check to remove species with insufficient data
+  left_join(model_species_metadata, by = "common_name") %>%
   group_by(common_name) %>%
   mutate(
     significant = p.value < 0.05,
@@ -135,7 +135,7 @@ p_effects_refined <- rigorous_results_detailed %>%
 # Ensure palette matches the 5 final plotted species
 my_palette_model <- c("darkgray", "#E4779C", "#800000", "#49A75A", "#DCBEFF")
 
-p_effects_final <- ggplot(p_effects_refined, aes(x = estimate, y = combined_name)) +
+model_p_effects_final <- ggplot(model_p_effects_refined, aes(x = estimate, y = combined_name)) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "gray30", linewidth = 1) +
   
   geom_errorbarh(aes(xmin = estimate - std.error, xmax = estimate + std.error, color = common_name), 
@@ -161,13 +161,13 @@ p_effects_final <- ggplot(p_effects_refined, aes(x = estimate, y = combined_name
   ) +
   labs(x = "Annual rate of change derived from\nlinear mixed-effects models of individuals", y = NULL)
 
-print(p_effects_final)
+print(model_p_effects_final)
 
 # ---------------------------------------------------------
-# 5. Export Final Assets
+# 5. Save results as a table and figure
 # ---------------------------------------------------------
 # Format manuscript summary table
-manuscript_table <- p_effects_refined %>%
+model_manuscript_table <- model_p_effects_refined %>%
   mutate(
     Significant = ifelse(significant == TRUE, "Yes", "No"),
     Annual_Rate = round(estimate, 4),
@@ -180,21 +180,13 @@ manuscript_table <- p_effects_refined %>%
                 Significant, n_fish = n_fish.x, n_years = n_yrs, total_days, R2_Marginal) %>%
   arrange(variable, P_Value)
 
-write_csv(manuscript_table, "output/TableS3_SAB_LMM_Results.csv")
+write_csv(model_manuscript_table, "output/TableS3_SAB_LMM_Results.csv")
 
-# Save TIFF for journal submission
-ggsave("output/Figure5_Model_Effects_HighRes_2.tiff", 
-       plot = p_effects_final, 
-       width = 6.5,             
-       height = 4.5,             
-       units = "in", 
-       dpi = 450,              
-       compression = "lzw")
 
 # Save lightweight PNG for GitHub README
-ggsave("output/Figure5_Model_Effects_README.png", 
-       plot = p_effects_final, 
+ggsave("output/Figure5_Model_Effects_README.png", # save as .tiff for publication quality
+       plot = model_p_effects_final, 
        width = 6.5, 
        height = 4.5, 
        units = "in", 
-       dpi = 150)
+       dpi = 150) # save as 300 dpi for publication quality

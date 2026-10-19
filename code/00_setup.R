@@ -8,7 +8,7 @@
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic.
 # Accepted 4 July 2026
 # Canadian Journal of Fisheries and Aquatic Sciences. 
-# DOI: [Will be available prior to final publication]
+# DOI: [Will be added once available]
 # ===================================================================
 
 # ---------------------------------------------------------
