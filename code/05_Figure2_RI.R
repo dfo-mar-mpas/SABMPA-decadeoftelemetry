@@ -21,7 +21,8 @@ library(glatos)
 # ---------------------------------------------------------
 # 1. Load clean filtered matched detections and run glatos::detection events()
 # ---------------------------------------------------------
-# Note: The data should already be in glatos format. See previous scripts for details.
+# Note: The data should already be in the format required for glatos. 
+# See previous scripts for details.
 
 SAB_core_M25_FINAL <- readRDS("data/processed/SAB_core_M25_FINAL.rds")
 

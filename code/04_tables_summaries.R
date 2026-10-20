@@ -175,7 +175,7 @@ total_detections_M <- SAB_core_M25_FINAL %>%
 
 totals_combined_M <- full_join(total_detections_M, total_releases_M, by = "common_name") %>%
   replace_na(list(Total_Detected = 0, Total_Released = 0)) %>%
-  # Formats as "Total_Detected (Total_Released)" to match your yearly columns
+  # Formats as "Total_Detected (Total_Released)" to match yearly columns
   mutate(Total = paste0(Total_Detected, " (", Total_Released, ")")) %>%
   select(common_name, Total)
 
@@ -210,7 +210,7 @@ yearly_totals_D <- SAB_core_M25_FINAL %>%
 grand_total_R <- n_distinct(SAB_tag_metadata_M25$animal_id)
 grand_total_D <- n_distinct(SAB_core_M25_FINAL$animal_id)
 
-# f. Format the bottom row to perfectly match the main table structure
+# f. Format the bottom row to match the main table structure
 bottom_row <- full_join(yearly_totals_D, yearly_totals_R, by = "year") %>%
   replace_na(list(Detected = 0, Released = 0)) %>%
   mutate(Detected_vs_Released = paste0(Detected, " (", Released, ")")) %>%
@@ -329,6 +329,8 @@ rel_loc_summary_Q <- SAB_glatos_Q25_FINAL %>%
   ) %>%
   # Remove the helper column before finishing
   select(-coord_spread)
+
+print(rel_loc_summary_Q)
 
 # save release locations for mapping Figure S5
 write.csv(rel_loc_summary_Q,"output/Fig_1_Q_releaselocs.csv")

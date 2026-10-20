@@ -21,7 +21,7 @@ library(smoothr)
 
 ## --- Load data and files if not already loaded
 # SABMPA fish tagging data
-SAB_tag_metadata_M <- readRDS("data/processed/SAB_tag_metadata_M.rds")
+SAB_tag_metadata_M25 <- readRDS("data/processed/SAB_tag_metadata_M25.rds")
 # Receiver deployment data
 SAB_deploys_FINAL <- readRDS("data/processed/SAB_deploys_FINAL.rds")
 

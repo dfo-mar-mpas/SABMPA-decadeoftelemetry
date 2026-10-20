@@ -2,7 +2,7 @@
 ### SABMPA_decadeoftelemetry ###
 # Script: 08_FigureS1_REI.R
 # Author: Harri Pettitt-Wade
-# Date Updated: 2026-10-17
+# Date Updated: 2026-10-19
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
 # Description: Calculates Receiver Efficiency Index (REI) on qualified 
 #              detections using the glatos package, calculates Species 
@@ -23,7 +23,7 @@ library(ggnewscale)
 ## --- Load the processed, cleaned and filtered files if not loaded already
 
 # Receiver deployments
-SAB_deploys_final <- readRDS("data/processed/SAB_deploys_final.rds")
+SAB_deploys_FINAL <- readRDS("data/processed/SAB_deploys_FINAL.rds")
 
 # Qualified detections with species metadata
 SAB_glatos_Q25_FINAL <- readRDS("data/processed/SAB_glatos_Q25_FINAL.rds")
@@ -83,7 +83,7 @@ SAB_det_ready <- SAB_glatos_Q25_FINAL %>%
   )
 
 # Format Deployments for glatos REI
-SAB_dep_ready <- SAB_deploys_final %>%
+SAB_dep_ready <- SAB_deploys_FINAL %>%
   transmute(
     station = as.character(station),
     deploy_date_time = as.POSIXct(deploy_date, tz = "UTC"),
@@ -96,10 +96,12 @@ SAB_dep_ready <- SAB_deploys_final %>%
       TRUE ~ "Other"
     )
   ) %>%
-  # Cap unrecovered receivers to current date for calculations if not removed already (see scripts 01-02)
+  # Cap unrecovered receivers to current date for calculations if not removed already. This dataset 
+  # already has receivers not recovered filtered out. See Script 01 data cleaning.
   mutate(recover_date_time = replace(recover_date_time, is.na(recover_date_time), Sys.time()))
     # NOTE: Your computer system time needs to be reasonably accurate for this to work as 
     # intended. Alternatively, you could remove by the 'RECOVERED' column or by the specific date.
+    
 # ---------------------------------------------------------
 # 3. Calculate Independent REI & Species Richness
 # ---------------------------------------------------------
