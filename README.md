@@ -17,9 +17,9 @@ _
 
 ## Repository Structure
 
-- data/raw/: Raw telemetry detections and metadata (Not currently tracked on GitHub due to file size). 
+- data/raw/: Raw telemetry detections and metadata. 
 
-- data/processed/: Cleaned dataset used for final analyses and model fitting.
+- data/processed/: Processed datasets for analyses and publication outputs.
 
 - code/: R scripts for data processing, spatial plotting, and statistical modeling.
 
@@ -29,7 +29,7 @@ _
 
 ## Data Availability
 
-The processed data required to run the analysis is included in the data/processed/ folder. Raw data was too large for github and can be downloaded on the Ocean Tracking Network (OTN) data portal and geoserver (https://members.oceantrack.org/project?ccode=SABMPA). See the script (...) for steps to offload, clean, and process raw data to get to the processed data stage (...).
+The processed data required to run the analysis is included in the data/processed/ folder. Raw data is provided in .parquet format in data/raw and can be downloaded from the Ocean Tracking Network (OTN) data portal and geoserver (https://members.oceantrack.org/project?ccode=SABMPA).
 
 ## How to Run the Code
 
@@ -41,7 +41,7 @@ To reproduce the analysis and figures from the manuscript:
 
 3. Run the setup script: Execute scripts/00_setup.R to load required libraries and set parameters.
 
-4. Generate results: Scripts are numbered sequentially. For example, run scripts/03_mixed_models.R to reproduce the statistical outputs and scripts/04_figures_tables.R to generate the maps and charts once the previous scripts have been run to generate the necessary summary data.
+4. Generate results: Scripts are numbered sequentially. Scripts 01 and 02 are to use as a guide to follow the steps used in the publication to clean and process raw data. Start at script 3 to use the processed datasets to generate the manuscript results and outputs.
 
 ## Citation
 
