@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 08_FigureS1_REI.R
+# Script: FigureS1_REI.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-10-19
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
@@ -11,7 +11,7 @@
 # ---------------------------------------------------------
 # 1. Setup & Package Loading
 # ---------------------------------------------------------
-source("code/00_setup.R")
+source("code/00_setup.R") # initial setup and packages
 
 library(dplyr)
 library(tidyr)
@@ -20,7 +20,7 @@ library(sf)
 library(ggplot2)
 library(ggnewscale)
 
-## --- Load the processed, cleaned and filtered files if not loaded already
+## --- Load the processed, cleaned and filtered files
 
 # Receiver deployments
 SAB_deploys_FINAL <- readRDS("data/processed/SAB_deploys_FINAL.rds")
@@ -52,9 +52,9 @@ sab_bs_clipped <- readRDS("data/shapefiles/sab_bs_clipped.rds")
 habitat_cols <- readRDS("data/processed/habitat_cols.rds")
 
 # ---------------------------------------------------------
-# 2. Format Detections and Deployments for glatos if not done already (see scripts 01-03)
+# 2. Format Detections and Deployments for glatos if not done already
 # ---------------------------------------------------------
-# Note the data should already be in glatos format. See previous scripts for details.
+# Note this data should already be in glatos format.
 
 # Format Detections for glatos REI
 SAB_det_ready <- SAB_glatos_Q25_FINAL %>%
@@ -97,7 +97,7 @@ SAB_dep_ready <- SAB_deploys_FINAL %>%
     )
   ) %>%
   # Cap unrecovered receivers to current date for calculations if not removed already. This dataset 
-  # already has receivers not recovered filtered out. See Script 01 data cleaning.
+  # already has receivers not recovered filtered out.
   mutate(recover_date_time = replace(recover_date_time, is.na(recover_date_time), Sys.time()))
     # NOTE: Your computer system time needs to be reasonably accurate for this to work as 
     # intended. Alternatively, you could remove by the 'RECOVERED' column or by the specific date.

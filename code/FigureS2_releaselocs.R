@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 09_FigureS2_releaselocs.R
+# Script: FigureS2_releaselocs.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-10-19
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
@@ -12,14 +12,14 @@
 # ---------------------------------------------------------
 # 0. Setup & Package Loading
 # ---------------------------------------------------------
-source("code/00_setup.R")
+source("code/00_setup.R") # initial setup and packages
 
 library(dplyr)
 library(ggplot2)
 library(sf)
 library(smoothr) 
 
-## --- Load data and files if not already loaded
+## --- Load processed data and files
 # SABMPA fish tagging data
 SAB_tag_metadata_M25 <- readRDS("data/processed/SAB_tag_metadata_M25.rds")
 # Receiver deployment data

@@ -2,13 +2,12 @@
 ### SABMPA_decadeoftelemetry ###
 # Script: 00_setup.R
 # Author: Harri Pettitt-Wade
-# Date Updated: 2026-08-20
+# Date Updated: 2026-11-08
 # Accompanying the manuscript:
 # Harri Pettitt-Wade, Nicholas W. Jeffery, Ben Zisserson, Cassandra Hartery, Ryan R.E. Stanley. 2026. 
 # A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic.
-# Accepted 4 July 2026
+# Accepted for publication 4 July 2026
 # Canadian Journal of Fisheries and Aquatic Sciences. 
-# DOI: [Will be added once available]
 # ===================================================================
 
 # ---------------------------------------------------------

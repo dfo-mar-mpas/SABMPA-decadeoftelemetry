@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 05_Figure2_RI.R
+# Script: Figure2_RI.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-10-17
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
@@ -21,8 +21,7 @@ library(glatos)
 # ---------------------------------------------------------
 # 1. Load clean filtered matched detections and run glatos::detection events()
 # ---------------------------------------------------------
-# Note: The data should already be in the format required for glatos. 
-# See previous scripts for details.
+# Note: This data should already be in the format required for glatos. 
 
 SAB_core_M25_FINAL <- readRDS("data/processed/SAB_core_M25_FINAL.rds")
 
@@ -37,8 +36,7 @@ hal_final_M <- SAB_core_M25_FINAL %>%
 wolf_final_M <- SAB_core_M25_FINAL %>%
   filter(commonName == "Atlantic striped wolffish")
 
-# NOTE: This was also completed using script 03_glatos_summaries.R on all species.
-# Here we conduct it separately on the core species only. 
+# glatos detection events on each species
 
 cod_events_M <- detection_events(cod_final_M, 
                                  location_col = "station", 
@@ -58,10 +56,6 @@ SAB_detection_events_core_M <- bind_rows(
   hal_events_M %>% mutate(species = "Atlantic halibut"),
   wolf_events_M %>% mutate(species = "Atlantic striped wolffish")
 )
-
-# Or load the detections events run on all species combined (Script 03) to run
-# RI on all species. For this publication, we ran it on the three core species only.
-#SAB_glatos_detection_events_M <- readRDS("data/processed/SAB_glatos_detection_events_M.rds")
 
 # ---------------------------------------------------------
 # 2. Calculate the Residency Index (RI) for each species (by individual)
@@ -83,13 +77,9 @@ core_ri_SAB_M <- bind_rows(
 ) %>%
   filter(residency_index > 0) # filter out zeros for plotting (no valid RI)
 
-# Or load your RI data for plotting if you already have it saved
-#core_ri_SAB_M <- readRDS("data/processed/core_ri_SAB_M.rds")
-
 # ---------------------------------------------------------
 # 3. Define Shared Theme for plotting
 # ---------------------------------------------------------
-# Defining this as an object keeps the code clean and ensures consistency
 ri_plot_theme <- theme_bw(base_size = 12) +
   theme(
     text = element_text(family = "sans"),
@@ -161,7 +151,6 @@ RI_map_plot_M <- ggplot(core_ri_SAB_M, aes(x = mean_longitude, y = mean_latitude
     strip.text = element_text(face = "italic", size = 10),
     strip.background = element_rect(fill = "white", color = "black", linewidth = 0.5),
     panel.grid.minor = element_blank(),
-    # Bring the legend back to show the RI scale
     legend.position = "right" 
   )
 

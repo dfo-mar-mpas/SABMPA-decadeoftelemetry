@@ -1,6 +1,6 @@
 # ===================================================================
 ### SABMPA_decadeoftelemetry ###
-# Script: 08_FigureS4_annualreturns.R
+# Script: FigureS4_annualreturns.R
 # Author: Harri Pettitt-Wade
 # Date Updated: 2026-09-23
 # Accompanying: Pettitt-Wade et al (2026) - CJFAS
@@ -10,7 +10,7 @@
 # ---------------------------------------------------------
 # 0. Setup & Packages
 # ---------------------------------------------------------
-source("code/00_setup.R")
+source("code/00_setup.R") # initial setup and packages
 
 library(dplyr)
 library(ggplot2)
@@ -24,7 +24,6 @@ SAB_glatos_Q25_FINAL <- readRDS("data/processed/SAB_glatos_Q25_FINAL.rds")
 # ---------------------------------------------------------
 # 1. Generate Detection Events and Retain Metadata
 # ---------------------------------------------------------
-# Note: Detection events are also generated in 03_glatos_summaries.R
 # Split by species to run events if not already generated, 
 # explicitly using purrr::map_df to avoid map.poly errors
 events_all_Q <- SAB_glatos_Q25_FINAL %>%
