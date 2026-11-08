@@ -16,7 +16,7 @@ _
 
 ## Repository Structure
 
-- data/raw/: Raw telemetry detections and metadata. 
+- data/raw/: Raw telemetry detections and metadata. Provided for transparency and also available on the Ocean Tracking Network (OTN) data portal. Use the processed datasets provided to produce the results for the manuscript.
 
 - data/processed/: Processed datasets for analyses and publication outputs.
 
