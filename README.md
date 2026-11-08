@@ -9,10 +9,9 @@
 
 ## Overview
 
-This repository contains the R code and open data access for the manuscript accepted for publication in the Canadian Journal of Fisheries and Aquatic Sciences (CJFAS) Special Collection 'Fish Telemetry to Address Management and Conservation" (https://cdnsciencepub.com/topic/cjfas-icftconference2025; Pettitt-Wade et al. 2026). Raw acoustic telemetry data is available on the Ocean Tracking Network (OTN) data portal (Stanley et al. 2016; https://members.oceantrack.org/project?ccode=SABMPA). 
+This repository contains the R code and open data access for the manuscript accepted for publication in the Canadian Journal of Fisheries and Aquatic Sciences (CJFAS) Special Collection 'Fish Telemetry to Address Management and Conservation" (https://cdnsciencepub.com/topic/cjfas-icftconference2025; Pettitt-Wade et al. 2026). 
 # --------------------------------------------------------------
-### Status: This repository is currently undergoing final formatting for publication. A DOI will be available prior to the manuscript's official publication.
-Please reach out for questions or further information including appropriate use of the data and code.
+# Please reach out for questions or further information including appropriate use of the data and code.
 _
 
 ## Repository Structure
@@ -41,13 +40,13 @@ To reproduce the analysis and figures from the manuscript:
 
 3. Run the setup script: Execute scripts/00_setup.R to load required libraries and set parameters.
 
-4. Generate results: Scripts are numbered sequentially. Scripts 01 and 02 are to use as a guide to follow the steps used in the publication to clean and process raw data. Start at script 3 to use the processed datasets to generate the manuscript results and outputs.
+4. Generate results: Run the appropriate script to generate the results from the manuscript, e.g., tables_summaries for the tables in the manuscript. Each script is standalone and will load the required files and sequential steps to generate the results and outputs.
 
 ## Citation
 
 If you use this code or data, please cite the original paper:
 
-Pettitt-Wade, H.,  Jeffery, N., Zisserson, B., Hartery, C., Stanley, R.R.E. 2016. A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic. CJFAS. Accepted. DOI:
+Pettitt-Wade, H.,  Jeffery, N., Zisserson, B., Hartery, C., Stanley, R.R.E. 2016. A decade of acoustic telemetry in a Marine Protected Area reveals multispecies connectivity throughout the Northwest Atlantic. CJFAS. Accepted July 2026
 
 ## Figures
 
